@@ -95,6 +95,19 @@
 
         header .btn {
             margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        header .btn:hover {
+            background: var(--hover-color);
+            transform: scale(1.05);
         }
 
         /* Sections */
@@ -208,7 +221,7 @@
         <h1>Mohammed Alustath</h1>
         <p>Software Engineer | Web Development Specialist</p>
         <p>Email: <a href="mailto:mohammed.m.alustath@gmail.com">mohammed.m.alustath@gmail.com</a></p>
-        <div class="btn" onclick="createButtonEffect(this)">Download CV</div>
+        <button class="btn" onclick="downloadCV()">Download CV</button>
     </header>
 
     <!-- About Section -->
@@ -259,13 +272,14 @@
             document.body.classList.toggle('dark-mode');
         }
 
-        // Button Interaction Effect
-        function createButtonEffect(button) {
-            button.style.background = "var(--hover-color)";
-            setTimeout(() => {
-                button.style.background = "";
-            }, 200);
-            alert("Downloading CV...");
+        // Button Interaction Effect for Download
+        function downloadCV() {
+            const link = document.createElement('a');
+            link.href = 'mohammed_alustath_cv.pdf'; // Replace with the actual PDF file path
+            link.download = 'mohammed_alustath_cv.pdf'; // Default filename
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         // Animate Skills on Load
