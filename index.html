@@ -3,82 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammed Alostath - Resume</title>
+    <title>Mohammed Alustath - Accessible CV</title>
     <style>
+        /* Root Variables */
+        :root {
+            --primary-color: #0057b7; /* Blue */
+            --secondary-color: #ffd700; /* Gold */
+            --background-light: #ffffff; /* White */
+            --background-dark: #1e1e1e; /* Dark Gray */
+            --text-light: #f9f9f9;
+            --text-dark: #333333;
+        }
+
+        /* Global Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
             line-height: 1.6;
-            color: #333;
         }
+
         header {
-            background: #f4f4f4;
-            color: #333;
-            padding: 10px 20px;
+            background: var(--primary-color);
+            color: var(--text-light);
             text-align: center;
+            padding: 60px 10%;
+            position: relative;
         }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        header a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        header a:hover {
+            border-color: var(--secondary-color);
+        }
+
+        main {
+            padding: 40px 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
         section {
-            margin: 20px;
+            background: var(--text-light);
+            border-left: 8px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        h1, h2, h3 {
-            color: #444;
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
         }
+
         ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
         }
+
         ul li {
-            margin: 5px 0;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            display: flex;
+            align-items: flex-start;
         }
-        .contact a {
-            color: #0066cc;
+
+        ul li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        footer a {
+            color: var(--secondary-color);
             text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s;
+        }
+
+        .print-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: var(--background-light);
+                color: var(--text-dark);
+            }
+
+            header {
+                background: var(--primary-color);
+                color: var(--text-light);
+                padding: 30px 10%;
+            }
+
+            main {
+                padding: 0 10%;
+            }
+
+            section {
+                border: none;
+                box-shadow: none;
+                padding: 10px 0;
+            }
+
+            .print-btn,
+            .floating-icon {
+                display: none; /* Hide interactive elements */
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Print Button -->
+    <button class="print-btn" onclick="window.print()">Print as PDF</button>
+
+    <!-- Header -->
     <header>
-        <h1>Mohammed Alostath</h1>
-        <p>Phone: +972592184966 | Email: <a href="mailto:mohammed.m.alustath@gmail.com">mohammed.m.alustath@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/malostath" target="_blank">https://www.linkedin.com/in/malostath</a></p>
+        <h1>Mohammed Alustath</h1>
+        <p>Software Engineer | Passionate about Testing, Development, and Innovation</p>
+        <p>Email: <a href="mailto:mohammed.m.alustath@gmail.com">mohammed.m.alustath@gmail.com</a> | LinkedIn: <a href="https://linkedin.com/in/malostath" target="_blank">linkedin.com/in/malostath</a></p>
     </header>
-    <section>
-        <h2>Personal Statement</h2>
-        <p>Detail-oriented Software Tester and Developer...</p>
-    </section>
-    <section>
-        <h2>Education</h2>
-        <ul>
-            <li><strong>BEng Computer Systems Engineering</strong> - Al Azhar University – Gaza (Sept 2023)</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Certificates</h2>
-        <ul>
-            <li>Software Testing and Automation Specialization – U of M, Coursera</li>
-            <li>Introduction to Back-End Development – Meta, Coursera (October 2024)</li>
-            <li>Backend Development (ASP.NET), Gaza Sky Geeks (June - November 2022)</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Technical Skills</h2>
-        <ul>
-            <li>Testing and QA Tools: API testing, Dafny, Alsatian...</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Professional Experience</h2>
-        <ul>
-            <li><strong>Web Developer</strong> - Maf Palestinian Consultative Center, Gaza City...</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Languages</h2>
-        <ul>
-            <li>Native: Arabic</li>
-            <li>Proficient: English</li>
-        </ul>
-    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Personal Statement Section -->
+        <section>
+            <h2>Personal Statement</h2>
+            <p>I am a dedicated Software Engineer with a passion for writing efficient, reliable, and scalable code. My mission is to create impactful software that exceeds user expectations while driving innovation in every project I undertake.</p>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2>Education</h2>
+            <ul>
+                <li>BEng Computer Systems Engineering, Al Azhar University – Gaza (2023)</li>
+                <li>Cumulative Average: 81.92% (V. Good)</li>
+                <li>Dissertation: KPI Evaluating System</li>
+            </ul>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section>
+            <h2>Technical Skills</h2>
+            <ul>
+                <li>Proficient in Python, JavaScript, React, and .NET</li>
+                <li>Testing Tools: JIRA, Dafny, Alsatian</li>
+                <li>Database Management: MySQL, PostgreSQL</li>
+            </ul>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section>
+            <h2>Professional Experience</h2>
+            <ul>
+                <li>Web Developer at Maf Palestinian Consultative Center (2020-2023)</li>
+                <li>IT Intern at UNRWA (2023)</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Mohammed Alustath. Built with passion and professionalism.</p>
+    </footer>
+
+    <script>
+        // The print functionality is handled directly by the `onclick="window.print()"` in the button.
+    </script>
 </body>
 </html>
