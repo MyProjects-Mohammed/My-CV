@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammed Alustath - Software Engineer</title>
+    <title>Mohammed Alustath - CV Preview</title>
     <style>
-        /* Root Variables */
         :root {
             --primary-color: #3a6ea5;
             --secondary-color: #f4a261;
             --background-light: #ffffff;
-            --background-dark: #1e1e2f;
             --text-light: #ffffff;
             --text-dark: #333333;
             --hover-color: #264b73;
@@ -22,79 +20,41 @@
             padding: 0;
             color: var(--text-dark);
             background: var(--background-light);
-            transition: background 0.3s, color 0.3s;
         }
 
-        /* Navigation */
-        nav {
-            background: var(--primary-color);
-            color: var(--text-light);
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background: var(--background-light);
         }
 
-        nav .links, nav .social {
-            display: flex;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--secondary-color);
-        }
-
-        nav .social a {
-            font-size: 1.2rem;
-            margin: 0 5px;
-        }
-
-        nav button {
-            background: none;
-            border: none;
-            color: var(--text-light);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        nav button:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Header */
-        header {
+        h1 {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: var(--text-light);
+            color: var(--primary-color);
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .pdf-preview {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            border: 1px solid var(--primary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 500px;
         }
 
-        header p {
-            font-size: 1.2rem;
-            margin: 5px 0;
+        .pdf-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        header .btn {
-            margin-top: 20px;
+        .btn {
+            display: block;
+            margin: 20px auto;
             padding: 10px 20px;
             background: var(--primary-color);
             color: var(--text-light);
@@ -102,194 +62,41 @@
             border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
+            text-align: center;
             transition: background 0.3s, transform 0.2s;
+            text-decoration: none;
         }
 
-        header .btn:hover {
+        .btn:hover {
             background: var(--hover-color);
             transform: scale(1.05);
         }
 
-        /* Sections */
-        section {
-            padding: 40px 20px;
-            margin: 20px 0;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        section h2 {
-            text-align: center;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            position: relative;
-        }
-
-        section h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--secondary-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .skill-bar {
-            width: 45%;
-            margin: 10px 0;
-        }
-
-        .skill-bar .label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .skill-bar .bar {
-            height: 10px;
-            width: 100%;
-            background: #e6e6e6;
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .skill-bar .bar span {
-            display: block;
-            height: 100%;
-            background: var(--primary-color);
-            width: 0%;
-            transition: width 1s ease-in-out;
-        }
-
         footer {
             text-align: center;
+            padding: 10px 20px;
+            margin-top: 20px;
             background: var(--primary-color);
             color: var(--text-light);
-            padding: 20px 0;
-            margin-top: 20px;
-        }
-
-        footer a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-
-        /* Dark Mode */
-        .dark-mode {
-            --background-light: #1e1e2f;
-            --text-dark: #f4f4f4;
-            --primary-color: #264b73;
-            --secondary-color: #f4a261;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .skill-bar {
-                width: 100%;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div>Mohammed Alustath</div>
-        <div class="links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
+    <div class="container">
+        <h1>CV Preview</h1>
+
+        <!-- PDF Preview -->
+        <div class="pdf-preview">
+            <!-- Embed the PDF file for preview -->
+            <iframe src="mohammed_alustath_cv.pdf"></iframe>
         </div>
-        <div class="social">
-            <a href="https://linkedin.com/in/malostath" target="_blank">LinkedIn</a>
-            <a href="https://github.com/malostath" target="_blank">GitHub</a>
-            <button onclick="toggleDarkMode()">🌓</button>
-        </div>
-    </nav>
 
-    <!-- Header -->
-    <header>
-        <h1>Mohammed Alustath</h1>
-        <p>Software Engineer | Web Development Specialist</p>
-        <p>Email: <a href="mailto:mohammed.m.alustath@gmail.com">mohammed.m.alustath@gmail.com</a></p>
-        <button class="btn" onclick="downloadCV()">Download CV</button>
-    </header>
+        <!-- Download Button -->
+        <a href="mohammed_alustath_cv.pdf" download="Mohammed_Alustath_CV.pdf" class="btn">Download CV</a>
+    </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a passionate software engineer with expertise in creating scalable, user-friendly web applications. I thrive on delivering high-quality code and exceeding user expectations.</p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <div class="skills">
-            <div class="skill-bar">
-                <div class="label">HTML & CSS</div>
-                <div class="bar"><span style="width: 90%;"></span></div>
-            </div>
-            <div class="skill-bar">
-                <div class="label">JavaScript</div>
-                <div class="bar"><span style="width: 85%;"></span></div>
-            </div>
-            <div class="skill-bar">
-                <div class="label">React</div>
-                <div class="bar"><span style="width: 80%;"></span></div>
-            </div>
-            <div class="skill-bar">
-                <div class="label">Python</div>
-                <div class="bar"><span style="width: 75%;"></span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2>Experience</h2>
-        <p><strong>Web Developer</strong> - Maf Palestinian Consultative Center (2020-2023)</p>
-        <p><strong>IT Intern</strong> - UNRWA (2023)</p>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <p>© 2024 Mohammed Alustath. Built with creativity and passion.</p>
-        <p>Email: <a href="mailto:mohammed.m.alustath@gmail.com">mohammed.m.alustath@gmail.com</a></p>
+        © 2024 Mohammed Alustath | Built with modern web technologies
     </footer>
-
-    <script>
-        // Toggle Dark Mode
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-
-        // Button Interaction Effect for Download
-        function downloadCV() {
-    const link = document.createElement('a');
-    link.href = 'mohammed_alustath_cv.pdf'; // Path to your file
-    console.log('Attempting to download:', link.href); // Debug log
-    link.download = 'mohammed_alustath_cv.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-
-        // Animate Skills on Load
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.skill-bar .bar span').forEach(bar => {
-                bar.style.width = bar.style.width;
-            });
-        });
-    </script>
 </body>
 </html>
