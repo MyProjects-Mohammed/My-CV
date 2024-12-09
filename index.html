@@ -20,6 +20,7 @@
             padding: 0;
             color: var(--text-dark);
             background: var(--background-light);
+            line-height: 1.6;
         }
 
         .container {
@@ -29,21 +30,24 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             background: var(--background-light);
+            overflow: hidden;
         }
 
         h1 {
             text-align: center;
             color: var(--primary-color);
+            font-size: 1.8rem;
         }
 
         .pdf-preview {
             margin: 20px 0;
-            display: flex;
-            justify-content: center;
             border: 1px solid var(--primary-color);
             border-radius: 10px;
-            overflow: hidden;
             height: 500px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            background: #f9f9f9;
         }
 
         .pdf-preview iframe {
@@ -61,10 +65,10 @@
             border: none;
             border-radius: 5px;
             font-size: 1rem;
-            cursor: pointer;
+            font-weight: bold;
             text-align: center;
-            transition: background 0.3s, transform 0.2s;
             text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
         }
 
         .btn:hover {
@@ -75,9 +79,38 @@
         footer {
             text-align: center;
             padding: 10px 20px;
-            margin-top: 20px;
             background: var(--primary-color);
             color: var(--text-light);
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .pdf-preview {
+                height: 400px;
+            }
+
+            .btn {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -88,7 +121,7 @@
         <!-- PDF Preview -->
         <div class="pdf-preview">
             <!-- Embed the PDF file for preview -->
-            <iframe src="mohammed_alustath_cv.pdf"></iframe>
+            <iframe src="mohammed_alustath_cv.pdf" title="CV Preview"></iframe>
         </div>
 
         <!-- Download Button -->
