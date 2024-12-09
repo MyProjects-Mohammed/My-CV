@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammed Alustath - Accessible CV</title>
+    <title>Mohammed Alustath - Masterpiece CV</title>
     <style>
         /* Root Variables */
         :root {
@@ -22,11 +22,11 @@
             padding: 0;
             background-color: var(--background-light);
             color: var(--text-dark);
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         header {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--text-light);
             text-align: center;
             padding: 60px 10%;
@@ -34,7 +34,7 @@
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: bold;
             margin: 0;
         }
@@ -53,6 +53,28 @@
 
         header a:hover {
             border-color: var(--secondary-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px;
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: var(--secondary-color);
         }
 
         main {
@@ -84,8 +106,6 @@
         ul li {
             margin-bottom: 10px;
             font-size: 1rem;
-            display: flex;
-            align-items: flex-start;
         }
 
         ul li::before {
@@ -128,6 +148,27 @@
             background: var(--secondary-color);
         }
 
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s;
+        }
+
+        .dark-mode-toggle:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
         /* Print Styles */
         @media print {
             body {
@@ -152,8 +193,8 @@
             }
 
             .print-btn,
-            .floating-icon {
-                display: none; /* Hide interactive elements */
+            .dark-mode-toggle {
+                display: none;
             }
         }
     </style>
@@ -162,6 +203,9 @@
     <!-- Print Button -->
     <button class="print-btn" onclick="window.print()">Print as PDF</button>
 
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
     <!-- Header -->
     <header>
         <h1>Mohammed Alustath</h1>
@@ -169,16 +213,24 @@
         <p>Email: <a href="mailto:mohammed.m.alustath@gmail.com">mohammed.m.alustath@gmail.com</a> | LinkedIn: <a href="https://linkedin.com/in/malostath" target="_blank">linkedin.com/in/malostath</a></p>
     </header>
 
+    <!-- Navigation -->
+    <nav>
+        <a href="#personal-statement">Personal Statement</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Technical Skills</a>
+        <a href="#experience">Experience</a>
+    </nav>
+
     <!-- Main Content -->
     <main>
         <!-- Personal Statement Section -->
-        <section>
+        <section id="personal-statement">
             <h2>Personal Statement</h2>
             <p>I am a dedicated Software Engineer with a passion for writing efficient, reliable, and scalable code. My mission is to create impactful software that exceeds user expectations while driving innovation in every project I undertake.</p>
         </section>
 
         <!-- Education Section -->
-        <section>
+        <section id="education">
             <h2>Education</h2>
             <ul>
                 <li>BEng Computer Systems Engineering, Al Azhar University – Gaza (2023)</li>
@@ -188,7 +240,7 @@
         </section>
 
         <!-- Technical Skills Section -->
-        <section>
+        <section id="skills">
             <h2>Technical Skills</h2>
             <ul>
                 <li>Proficient in Python, JavaScript, React, and .NET</li>
@@ -198,7 +250,7 @@
         </section>
 
         <!-- Professional Experience Section -->
-        <section>
+        <section id="experience">
             <h2>Professional Experience</h2>
             <ul>
                 <li>Web Developer at Maf Palestinian Consultative Center (2020-2023)</li>
@@ -213,7 +265,12 @@
     </footer>
 
     <script>
-        // The print functionality is handled directly by the `onclick="window.print()"` in the button.
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            document.querySelector('.dark-mode-toggle').textContent = isDarkMode ? 'Disable Dark Mode' : 'Enable Dark Mode';
+        }
     </script>
 </body>
 </html>
