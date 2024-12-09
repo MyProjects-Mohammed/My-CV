@@ -274,13 +274,15 @@
 
         // Button Interaction Effect for Download
         function downloadCV() {
-            const link = document.createElement('a');
-            link.href = 'mohammed_alustath_cv.pdf'; // Replace with the actual PDF file path
-            link.download = 'mohammed_alustath_cv.pdf'; // Default filename
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+    const link = document.createElement('a');
+    link.href = 'mohammed_alustath_cv.pdf'; // Path to your file
+    console.log('Attempting to download:', link.href); // Debug log
+    link.download = 'mohammed_alustath_cv.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 
         // Animate Skills on Load
         document.addEventListener('DOMContentLoaded', () => {
